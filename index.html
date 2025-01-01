@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // console.log("hello julian.");
+        /* 
+        Add logic for computer getting their choice
+            Will use random math generator to create logic
+            Math.floor(Math.random() * 3) => will give out either 0,1,2
+            and correlate it with rock, paper, scissors
+        */
+        function getComputerChoice() {
+            let num = Math.floor(Math.random() * 3);
+            let pick;
+            if (num === 0) {
+                pick = "rock";
+                return pick;
+            } else if (num === 1){
+                pick = "paper";
+                return pick;
+            } else if (num === 2){
+                pick = "scissors";
+                return pick;
+            }
+        }
+        console.log(getComputerChoice());
+        console.log(getComputerChoice());
+        console.log(getComputerChoice());
+        console.log(getComputerChoice());
+
+
+        /*
+        Add logic for user input to get their choice
+
+        Add logic to play the single round
+        */
+
+
+
+    </script>
+    <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+</body>
+</html>
