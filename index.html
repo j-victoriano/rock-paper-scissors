@@ -20,7 +20,7 @@
             } else if (num === 1){
                 pick = "paper";
                 return pick;
-            } else if (num === 2){
+            } else {
                 pick = "scissors";
                 return pick;
             }
@@ -33,9 +33,61 @@
             return pick;
         }
         // console.log(getHumanChoice());
+        // Initializing the score keeping
+        let humanScore = 0;
+        let computerScore = 0;
         /*
         Add logic to play the single round
         */
+        function playRound (humanChoice, computerChoice) {
+            if (humanChoice === "rock"){
+                if (computerChoice === "rock") {
+                    console.log("You guys tied! Try again");
+                    return;
+                } else if (computerChoice === "paper"){
+                    console.log("You lose! Point for Computer");
+                    computerScore++;
+                    return;
+                } else {
+                    console.log("You win! Point for you");
+                    humanScore++;
+                    return;
+                }
+            } else if (humanChoice === "paper") {
+                if (computerChoice === "rock") {
+                    console.log("You win! Point for you");
+                    humanScore++;
+                    return;
+                } else if (computerChoice === "paper"){
+                    console.log("You tie! Try again");
+                    return;
+                } else {
+                    console.log("You lost! Point for computer");
+                    computerScore++;
+                    return;
+                }
+            } else {
+                if (computerChoice === "rock") {
+                    console.log("You lost! Point for computer");
+                    computerScore++;
+                    return;
+                } else if (computerChoice === "paper"){
+                    console.log("You win! Point for you");
+                    humanScore++;
+                    return;
+                } else {
+                    console.log("You tie! Try again");
+                    return;
+                }
+            }
+        }
+
+        const humanSelection = getHumanChoice().toLowerCase();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+        console.log("Points for human: ", humanScore);
+        console.log("Points for computer: ", computerScore);
 
 
 
