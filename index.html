@@ -82,15 +82,17 @@
             }
         }
 
-        const humanSelection = getHumanChoice().toLowerCase();
-        const computerSelection = getComputerChoice();
+        let round = 5;
+        while (round > 0) {
+            let humanSelection = getHumanChoice().toLowerCase();
+            let computerSelection = getComputerChoice();  
+            playRound(humanSelection, computerSelection);
+            round--;
+            console.log("Points for human: ", humanScore);
+            console.log("Points for computer: ", computerScore);
+        }
 
-        playRound(humanSelection, computerSelection);
-        console.log("Points for human: ", humanScore);
-        console.log("Points for computer: ", computerScore);
-
-
-
+        console.log("Final Score: \nHuman: ",humanScore,"\nMachine: ", computerScore);
     </script>
     <title>Rock-Paper-Scissors</title>
 </head>
