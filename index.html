@@ -7,10 +7,13 @@
     <title>Rock-Paper-Scissors</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <button>Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+    <div id="container">
+        <h1>Rock Paper Scissors</h1>
+        <button>Rock</button>
+        <button>Paper</button>
+        <button>Scissors</button>
+    </div>
+    
 </body>
     <script>
             // console.log("hello julian.");
@@ -67,19 +70,38 @@
                 }
             }
 
+            const container = document.querySelector("#container");
+            const content = document.createElement("div");
+            content.textContent = "Current Score";
+            container.appendChild(content);
+
+            const userScore = document.createElement("p");
+            const machineScore = document.createElement("p");
+
+
+
+            content.appendChild(userScore);
+            content.appendChild(machineScore);
             const buttons = document.querySelectorAll("button");
 
             buttons.forEach(button => {
                 button.addEventListener("click", () => {
                 // console.log("Button clicked: ",button.textContent);
                 let humanSelection = button.textContent.toLowerCase();
-                console.log(humanSelection);
+                // console.log(humanSelection);
                 let computerSelection = getComputerChoice();
-                console.log(computerSelection)
+                // console.log(computerSelection)
+                console.log(humanSelection, " vs ", computerSelection);
                 playRound(humanSelection, computerSelection);
                 console.log("Final Score: \nHuman: ",humanScore,"\nMachine: ", computerScore);
+
+                userScore.textContent = `User: ${humanScore}`;
+                machineScore.textContent = `Machine: ${computerScore}`;
+                
                 })
             })
+
+            
 
             
 
