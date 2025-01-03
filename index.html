@@ -72,6 +72,7 @@
 
             const container = document.querySelector("#container");
             const content = document.createElement("div");
+            content.classList.add("score");
             content.textContent = "Current Score";
             container.appendChild(content);
 
@@ -97,14 +98,28 @@
 
                 userScore.textContent = `User: ${humanScore}`;
                 machineScore.textContent = `Machine: ${computerScore}`;
+
+                console.log(checkScore());
                 
                 })
             })
 
-            
-
-            
-
+            function checkScore() {
+                if (humanScore === 5 || computerScore === 5){
+                    const winner = document.createElement("div");
+                    if (humanScore === 5) {
+                        winner.textContent = "You win!";
+                    } else {
+                        winner.textContent = "Womp Womp you lost!";
+                    }
+                    content.appendChild(winner);
+                    buttons.forEach(button => {
+                        button.disabled = true;
+                    })
+                } else {
+                    return;
+                }
+            }
             // let round = 5;
             // while (round > 0) {
             //     let humanSelection = getHumanChoice().toLowerCase();
